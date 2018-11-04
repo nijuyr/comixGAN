@@ -20,8 +20,7 @@ This repo contains code for training ComixGAN. It is trained using COCO dataset 
         - All the remaining images are used for training.          
           
 3. Training in batches using 384x384 images.
-    - Sample images in batches (to have balanced batches in training) with:
-        - 50% of batch are comics and 50% for both generated comics and smoothed-edge comics.
+    - Sample images in batches   
 4. Pretrain Generator to make it return output the same with the input (On whole COCO dataset).
 5. Pretrain Discriminator on COCO and comic images.
 6. Adversarial Training and tuning of D and G:
@@ -30,8 +29,10 @@ This repo contains code for training ComixGAN. It is trained using COCO dataset 
 8. Add Callbacks (Weights saving [x], history saving [x])
 
 ## Changes in comparison with CartoonGAN:
-- Upsampling instead transpose convolution
+- Non-saturating loss for Generator
+- Generator/Discriminator ration during adversarial training: 3:1 (3 G weights updates for 1 D update) 
 - Pretrained discriminator
+- Sigmoid in last D layer
 
 ## Sample results
 
